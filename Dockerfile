@@ -8,8 +8,11 @@ WORKDIR /var/www/html
 RUN addgroup -g 82 -S www-data \
   && adduser -u 82 -D -S -G www-data www-data
 
+RUN mkdir -p /etc/nginx/conf.d/drupal/
+
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY drupal.conf /etc/nginx/conf.d/default.conf
+COPY extra.conf /etc/nginx/conf.d/drupal/extra.conf
 
 ENV DOCROOT="/var/www/html" \
   SERVER_NAME="_" \
