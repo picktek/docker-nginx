@@ -1,4 +1,4 @@
-FROM nginx:1.13-alpine
+FROM nginx:alpine
 
 MAINTAINER drupal-docker <info@drupaldocker.org>
 
@@ -13,6 +13,7 @@ COPY drupal.conf /etc/nginx/conf.d/default.conf
 
 ENV DOCROOT="/var/www/html" \
   SERVER_NAME="_" \
+  S3_BASE_PATH="" \
   PHP_SERVICE_NAME="php"
 
 COPY docker-entrypoint.sh /usr/local/bin/
