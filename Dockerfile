@@ -6,7 +6,8 @@ WORKDIR /var/www/html
 
 # Ensure www-data user exists.
 RUN addgroup -g 82 -S www-data \
-  && adduser -u 82 -D -S -G www-data www-data
+  && adduser -u 82 -D -S -G www-data www-data \
+  && apk add --no-cache certbot
 
 RUN mkdir -p /etc/nginx/conf.d/drupal/
 
